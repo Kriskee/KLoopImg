@@ -57,7 +57,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     {
-        button.frame = CGRectMake(100, CGRectGetMaxY(self.label.frame), SC_WIDTH - 200, 40);
+        button.frame = CGRectMake(100, CGRectGetMaxY(self.label.frame) + 50, SC_WIDTH - 200, 40);
         button.backgroundColor = [UIColor colorWithRed:1.000 green:0.697 blue:0.369 alpha:1.000];
         [button setTitle:@"更换轮播方向" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(changeDirection) forControlEvents:UIControlEventTouchUpInside];
@@ -71,7 +71,7 @@
 
 // 计时器方法
 - (void)setupTimer{
-    [self.loopImg autoLoop:kScrollJudge];
+    [self.loopImg autoLoop:direction];
 }
 
 // 页面控制方法
@@ -85,8 +85,9 @@
     self.label.text = [self.loopImg getActArray];
 }
 
+// 更改轮播方向
 - (void)changeDirection{
-    if(direction == (kScrollRight|kScrollJudge)){
+    if(direction == kScrollRight){
         direction = kScrollLift;
     }else{
         direction = kScrollRight;
@@ -94,7 +95,6 @@
     
     [self.timer invalidate];
     [self timerFunc];
-
 }
 
 // 即将拖动时，关闭计时器

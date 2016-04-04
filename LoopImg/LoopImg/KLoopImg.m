@@ -70,7 +70,7 @@
 #pragma mark - 自动轮播
 - (void)autoLoop:(EScrollDirection)direction{
     [UIView animateWithDuration:0.2 animations:^{
-        if(direction == (kScrollLift|kScrollJudge)){
+        if(direction == kScrollLift){
             self.loopImg.contentOffset = CGPointMake(2 * loopImgWidth, 0);
         }else if(direction == kScrollRight){
             self.loopImg.contentOffset = CGPointMake(0, 0);
