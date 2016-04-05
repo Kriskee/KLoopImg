@@ -96,6 +96,20 @@
     }
 }
 
+#pragma mark - 更换轮播方向
+- (void)changeDirection{
+    switch (scrollDirection) {
+        case kScrollLift:
+            scrollDirection = kScrollRight;
+            break;
+        case kScrollRight:
+            scrollDirection = kScrollLift;
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - 自动轮播
 - (void)autoLoop{
     [UIView animateWithDuration:0.2 animations:^{

@@ -118,9 +118,6 @@ typedef NS_ENUM(NSInteger, EAction){
         
     }
     [self.view addSubview:self.loopImg];
-    
-    [self.view bringSubviewToFront:self.subLab];
-    self.subLab.text = [self.loopImg getElementOfActArray];
 }
 
 // 计时器方法
@@ -137,7 +134,6 @@ typedef NS_ENUM(NSInteger, EAction){
 
 // 页面控制方法
 - (void)pageCtr{
-    NSLog(@"%ld", self.loopImg.page.currentPage);
     [self.loopImg pageChange];
     self.subLab.text = [self.loopImg getElementOfActArray];
 }
@@ -161,15 +157,7 @@ typedef NS_ENUM(NSInteger, EAction){
 
 // 更改轮播方向
 - (void)changeDirection{
-    if(direction == kScrollRight){
-        direction = kScrollLift;
-    }else{
-        direction = kScrollRight;
-    }
-    
-    self.loopImg = nil;
-    [self.timer invalidate];
-    [self createLoopImg];
+    [self.loopImg changeDirection];
 }
 
 // 更换响应事件

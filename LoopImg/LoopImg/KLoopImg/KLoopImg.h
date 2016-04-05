@@ -67,4 +67,8 @@ typedef NS_ENUM(NSInteger, EScrollDirection){
 
 - (id)getElementOfImgArray;
 
+/**
+ * 更换轮播方向
+ */
+- (void)changeDirection;
 @end
