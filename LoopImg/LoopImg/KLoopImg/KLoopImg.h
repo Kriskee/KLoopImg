@@ -14,7 +14,6 @@
 typedef NS_ENUM(NSInteger, EScrollDirection){
     kScrollLift,
     kScrollRight,
-    kScrollJudge,
 };
 
 @interface KLoopImg : UIView
@@ -33,19 +32,19 @@ typedef NS_ENUM(NSInteger, EScrollDirection){
 @property(nonatomic,strong)NSArray *imgArray;
 @property(nonatomic,strong)NSArray *actArray;
 
-- (instancetype)initWithFrame:(CGRect)frame imgArray:(NSArray*)array;
+- (instancetype)initWithFrame:(CGRect)frame imgArray:(NSArray*)array direction:(EScrollDirection)direction;
 
 /**
  * 自动轮播
  * @param direction 方向
  */
-- (void)autoLoop:(EScrollDirection)direction;
+- (void)autoLoop;
 
 /**
  * 拖动图片
  * @param direction 方向
  */
-- (void)dragLoop:(EScrollDirection)direction;
+- (void)dragLoop;
 
 /**
  * 页码控制设置

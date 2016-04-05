@@ -13,19 +13,29 @@
     @private
     CGFloat loopImgWidth;
     CGFloat loopImgHeight;
+    int scrollDirection;
 }
 @end
 
 @implementation KLoopImg
 
-- (instancetype)initWithFrame:(CGRect)frame imgArray:(NSArray*)array{
+- (instancetype)initWithFrame:(CGRect)frame imgArray:(NSArray*)array direction:(EScrollDirection)direction{
     self = [super initWithFrame:frame];
     if(self){
         self.imgArray = array;
         count = (int)self.imgArray.count;
-        count0 = 0;
-        count1 = 1;
-        count2 = 2;
+        scrollDirection = direction;
+        
+        if(scrollDirection == kScrollLift){
+            count0 = 0;
+            count1 = 1;
+            count2 = 2;
+        }else if(scrollDirection == kScrollRight){
+            count0 = count - 1;
+            count1 = 0;
+            count2 = 1;
+        }
+        
         [self setupView];
     }
     return self;
@@ -60,36 +70,28 @@
     self.img0.image = [UIImage imageNamed:_imgArray[count0]];
     self.img1.image = [UIImage imageNamed:_imgArray[count1]];
     self.img2.image = [UIImage imageNamed:_imgArray[count2]];
-    
-    self.page = [UIPageControl new];
-    self.page.alpha = 0;
-    [self addSubview:self.page];
 
 }
 
 #pragma mark - 自动轮播
-- (void)autoLoop:(EScrollDirection)direction{
+- (void)autoLoop{
     [UIView animateWithDuration:0.2 animations:^{
-        if(direction == kScrollLift){
+        if(scrollDirection == kScrollLift){
             self.loopImg.contentOffset = CGPointMake(2 * loopImgWidth, 0);
-        }else if(direction == kScrollRight){
+        }else if(scrollDirection == kScrollRight){
             self.loopImg.contentOffset = CGPointMake(0, 0);
         }
     }];
     
-    [self dragLoop:direction];
+    [self scroll:scrollDirection];
 }
 
 #pragma mark - 拖动图片
-- (void)dragLoop:(EScrollDirection)direction{
-    if(direction == kScrollJudge){
-        if(self.loopImg.contentOffset.x == 0){
-            [self scroll:kScrollRight];
-        }else if(self.loopImg.contentOffset.x == 2 * loopImgWidth){
-            [self scroll:kScrollLift];
-        }
-    }else{
-        [self scroll:direction];
+- (void)dragLoop{
+    if(self.loopImg.contentOffset.x == 0){
+        [self scroll:kScrollRight];
+    }else if(self.loopImg.contentOffset.x == 2 * loopImgWidth){
+        [self scroll:kScrollLift];
     }
 }
 
@@ -116,12 +118,15 @@
 
 #pragma mark - 页码控制器设置
 - (void)pageSettingWithHeight:(CGFloat)height block:(void(^)(UIPageControl* page))block{
-    self.page.alpha = 1;
-    self.page.frame = CGRectMake(0, loopImgHeight - height, loopImgWidth, height);
+    self.page = [[UIPageControl alloc] initWithFrame:CGRectMake(0, loopImgHeight - height, loopImgWidth, height)];
     self.page.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
     self.page.pageIndicatorTintColor = [UIColor colorWithWhite:1.000 alpha:0.500];
     self.page.currentPageIndicatorTintColor = [UIColor whiteColor];
     self.page.numberOfPages = count;
+    // 向右滑动起始点为最后一个
+    if(scrollDirection == kScrollRight) self.page.currentPage = count - 1;
+    [self addSubview:self.page];
+    
     if(block != nil){
         block(self.page);
     }
