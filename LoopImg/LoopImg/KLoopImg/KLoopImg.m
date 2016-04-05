@@ -22,7 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame imgArray:(NSArray*)array direction:(EScrollDirection)direction{
     self = [super initWithFrame:frame];
     if(self){
-        self.imgArray = array;
+        self.imgArray = [self setArray:array];
         count = (int)self.imgArray.count;
         scrollDirection = direction;
         
@@ -67,10 +67,33 @@
     [self.loopImg addSubview:self.img2];
     [self addSubview:self.loopImg];
     
-    self.img0.image = [UIImage imageNamed:_imgArray[count0]];
-    self.img1.image = [UIImage imageNamed:_imgArray[count1]];
-    self.img2.image = [UIImage imageNamed:_imgArray[count2]];
+    [self imageAdd];
+}
 
+#pragma mark - 数组设置设置
+- (NSArray*)setArray:(NSArray*)array{
+    id temp;
+    NSMutableArray *mArray = [NSMutableArray arrayWithArray:array];
+    temp = [mArray lastObject];
+    [mArray removeLastObject];
+    return [@[temp] arrayByAddingObjectsFromArray:mArray];
+}
+
+- (NSArray *)actArray{
+    return [self setArray:_actArray];
+}
+
+#pragma mark - 根据图片数组元素类型判断添加方式
+- (void)imageAdd{
+    if([[self.imgArray firstObject] isKindOfClass:[NSString class]]){
+        self.img0.image = [UIImage imageNamed:_imgArray[count0]];
+        self.img1.image = [UIImage imageNamed:_imgArray[count1]];
+        self.img2.image = [UIImage imageNamed:_imgArray[count2]];
+    }else if([[self.imgArray firstObject] isKindOfClass:[UIImage class]]){
+        self.img0.image = self.imgArray[count0];
+        self.img1.image = self.imgArray[count1];
+        self.img2.image = self.imgArray[count2];
+    }
 }
 
 #pragma mark - 自动轮播
@@ -107,11 +130,7 @@
         count1 = count0;
         count0 = (count0 == 0) ? count - 1: count0 - 1;
     }
-    {
-        self.img0.image = [UIImage imageNamed:self.imgArray[count0]];
-        self.img1.image = [UIImage imageNamed:self.imgArray[count1]];
-        self.img2.image = [UIImage imageNamed:self.imgArray[count2]];
-    }
+    [self imageAdd];
     
     self.page.currentPage = count1 == 0 ? count - 1 : count1 - 1;
 }
@@ -138,11 +157,7 @@
     count1 = (int)(self.page.currentPage == count - 1 ? 0 : self.page.currentPage + 1);
     count0 = (count1 - 1 < 0) ? count - 1 : count1 - 1;
     count2 = (count1 + 1 == count) ? 0 : count1 + 1;
-    {
-        self.img0.image = [UIImage imageNamed:self.imgArray[count0]];
-        self.img1.image = [UIImage imageNamed:self.imgArray[count1]];
-        self.img2.image = [UIImage imageNamed:self.imgArray[count2]];
-    }
+    [self imageAdd];
 }
 
 #pragma mark - 获取数组元素

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C23067601CB36B35003AC294 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C230675F1CB36B35003AC294 /* ActionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C23067621CB39139003AC294 /* new.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C23067611CB39139003AC294 /* new.jpeg */; settings = {ASSET_TAGS = (); }; };
 		C23F30011CB28C27003218FB /* KLoopImg.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F30001CB28C27003218FB /* KLoopImg.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30071CB28CC9003218FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F30041CB28CC9003218FB /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30111CB28CD0003218FB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F300D1CB28CD0003218FB /* TestViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		C230675E1CB36B35003AC294 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		C230675F1CB36B35003AC294 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		C23067611CB39139003AC294 /* new.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = new.jpeg; sourceTree = "<group>"; };
 		C23F2FFF1CB28C27003218FB /* KLoopImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLoopImg.h; sourceTree = "<group>"; };
 		C23F30001CB28C27003218FB /* KLoopImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLoopImg.m; sourceTree = "<group>"; };
 		C23F30031CB28CC9003218FB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C23F301D1CB28DEC003218FB /* 04.png */,
 				C23F301E1CB28DEC003218FB /* 05.png */,
 				C23F301F1CB28DEC003218FB /* hh.png */,
+				C23067611CB39139003AC294 /* new.jpeg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23067621CB39139003AC294 /* new.jpeg in Resources */,
 				C23F30221CB28DEC003218FB /* 02.png in Resources */,
 				C2C60AC11CB20DA10043693A /* LaunchScreen.storyboard in Resources */,
 				C2C60ABE1CB20DA10043693A /* Assets.xcassets in Resources */,
