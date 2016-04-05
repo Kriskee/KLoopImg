@@ -9,7 +9,7 @@
 #import "TestViewController.h"
 #import "KLoopImg.h"
 #import "ActionViewController.h"
-#define pageHeight 30
+#define PAGE_H 30
 
 typedef NS_ENUM(NSInteger, EAction){
     kChangeDirection,
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, EAction){
     
     [self createLoopImg];
     
-    self.subLab = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.loopImg.frame) - pageHeight, 100, pageHeight)];
+    self.subLab = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.loopImg.frame) - PAGE_H, 100, PAGE_H)];
     {
         self.subLab.textAlignment = NSTextAlignmentCenter;
         self.subLab.textColor = [UIColor whiteColor];
@@ -87,27 +87,14 @@ typedef NS_ENUM(NSInteger, EAction){
 
 // 创建轮播图
 - (void)createLoopImg{
-    NSArray *imgArray;
-    NSArray *strArray;
-    /* 图片数组·图片名数组 */{
-        UIImage *img0 = [UIImage imageNamed:@"01.png"];
-        UIImage *img1 = [UIImage imageNamed:@"02.png"];
-        UIImage *img2 = [UIImage imageNamed:@"03.png"];
-        UIImage *img3 = [UIImage imageNamed:@"04.png"];
-        UIImage *img4 = [UIImage imageNamed:@"05.png"];
-        UIImage *img5 = [UIImage imageNamed:@"hh.png"];
-        imgArray = @[img0, img1, img2, img3, img4, img5, [UIImage imageNamed:@"new.jpeg"]];
-        strArray = @[@"01.png", @"02.png", @"03.png", @"04.png", @"05.png", @"hh.png", @"new.jpeg"];
-    }
-        
-    self.loopImg = [[KLoopImg alloc]initWithFrame:CGRectMake(0, navigationMaxY, SC_WIDTH, SC_WIDTH/2.0)
-                                         imgArray:imgArray
+    self.loopImg = [[KLoopImg alloc]initWithFrame:CGRectMake(0, navigationMaxY, LOOPIMG_W, LOOPIMG_H)
+                                         imgArray:STR_ARR // IMG_ARR
                                         direction:direction];
     {
         self.loopImg.loopImg.delegate = self;
-        self.loopImg.actArray = @[@"传颂之物", @"野良神", @"Chobits", @"海贼王", @"言叶之庭", @"中科网", @"初音ミク"];
+        self.loopImg.actArray = ACT_ARR;
         
-        [self.loopImg pageSettingWithHeight:pageHeight block:^(UIPageControl *page) {
+        [self.loopImg pageSettingWithHeight:PAGE_H block:^(UIPageControl *page) {
             [page addTarget:self action:@selector(pageCtr) forControlEvents:UIControlEventValueChanged];
         }];
         

@@ -17,6 +17,10 @@
 #define LOOPIMG_W SC_WIDTH
 #define LOOPIMG_H LOOPIMG_W/2.0f
 
+#define STR_ARR @[@"01.png", @"02.png", @"03.png", @"04.png", @"05.png", @"hh.png", @"new.jpeg"]
+#define IMG_ARR @[[UIImage imageNamed:@"01.png"],[UIImage imageNamed:@"02.png"],[UIImage imageNamed:@"03.png"],[UIImage imageNamed:@"04.png"],[UIImage imageNamed:@"05.png"], [UIImage imageNamed:@"hh.png"],[UIImage imageNamed:@"new.jpeg"]]
+#define ACT_ARR @[@"传颂之物", @"野良神", @"Chobits", @"海贼王", @"言叶之庭", @"中科网", @"初音ミク"]
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
