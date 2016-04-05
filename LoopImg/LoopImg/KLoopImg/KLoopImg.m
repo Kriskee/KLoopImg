@@ -145,8 +145,22 @@
     }
 }
 
-#pragma mark - 获取事件数组元素
-- (id)getActArray{
+#pragma mark - 获取数组元素
+- (id)getElementOf:(NSArray*)arrayType;{
+    id element;
+    if([arrayType isEqual:self.actArray]){
+        element = self.actArray[count1];
+    }else if ([arrayType isEqual:self.imgArray]){
+        element = self.imgArray[count1];
+    }
+    return element;
+}
+
+- (id)getElementOfActArray{
     return self.actArray[count1];
+}
+
+- (id)getElementOfImgArray{
+    return self.imgArray[count1];
 }
 @end

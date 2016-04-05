@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LoopImgViewController.h"
 #import "TestViewController.h"
 
 @interface AppDelegate ()
@@ -18,12 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     self.window.frame = [UIScreen mainScreen].bounds;
     [self.window makeKeyAndVisible];
-//    LoopImgViewController *LIVC = [LoopImgViewController new];
-    TestViewController *LIVC = [TestViewController new];
-    self.window.rootViewController = LIVC;
+    UINavigationController *LNC = [[UINavigationController alloc] initWithRootViewController:[TestViewController new]];
+    self.window.rootViewController = LNC;
     
     return YES;
 }

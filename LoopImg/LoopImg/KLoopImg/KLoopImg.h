@@ -59,7 +59,12 @@ typedef NS_ENUM(NSInteger, EScrollDirection){
 - (void)pageChange;
 
 /**
- * 获取事件数组
+ * 获取数组元素
  */
-- (id)getActArray;
+- (id)getElementOf:(NSArray*)arrayType;
+
+- (id)getElementOfActArray;
+
+- (id)getElementOfImgArray;
+
 @end

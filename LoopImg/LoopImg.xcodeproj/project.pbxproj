@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23067601CB36B35003AC294 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C230675F1CB36B35003AC294 /* ActionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30011CB28C27003218FB /* KLoopImg.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F30001CB28C27003218FB /* KLoopImg.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30071CB28CC9003218FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F30041CB28CC9003218FB /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		C23F30101CB28CD0003218FB /* LoopImgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F300B1CB28CD0003218FB /* LoopImgViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30111CB28CD0003218FB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F300D1CB28CD0003218FB /* TestViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C23F30121CB28CD0003218FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F300F1CB28CD0003218FB /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30161CB28CDB003218FB /* LoopImgView.m in Sources */ = {isa = PBXBuildFile; fileRef = C23F30151CB28CDB003218FB /* LoopImgView.m */; settings = {ASSET_TAGS = (); }; };
 		C23F30211CB28DEC003218FB /* 01.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F301A1CB28DEC003218FB /* 01.png */; settings = {ASSET_TAGS = (); }; };
 		C23F30221CB28DEC003218FB /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = C23F301B1CB28DEC003218FB /* 02.png */; settings = {ASSET_TAGS = (); }; };
@@ -28,17 +27,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C230675E1CB36B35003AC294 /* ActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		C230675F1CB36B35003AC294 /* ActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
 		C23F2FFF1CB28C27003218FB /* KLoopImg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLoopImg.h; sourceTree = "<group>"; };
 		C23F30001CB28C27003218FB /* KLoopImg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLoopImg.m; sourceTree = "<group>"; };
 		C23F30031CB28CC9003218FB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C23F30041CB28CC9003218FB /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C23F30061CB28CC9003218FB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C23F300A1CB28CD0003218FB /* LoopImgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopImgViewController.h; sourceTree = "<group>"; };
-		C23F300B1CB28CD0003218FB /* LoopImgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopImgViewController.m; sourceTree = "<group>"; };
 		C23F300C1CB28CD0003218FB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		C23F300D1CB28CD0003218FB /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		C23F300E1CB28CD0003218FB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C23F300F1CB28CD0003218FB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C23F30141CB28CDB003218FB /* LoopImgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopImgView.h; sourceTree = "<group>"; };
 		C23F30151CB28CDB003218FB /* LoopImgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopImgView.m; sourceTree = "<group>"; };
 		C23F301A1CB28DEC003218FB /* 01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.png; sourceTree = "<group>"; };
@@ -89,12 +86,10 @@
 		C23F30091CB28CD0003218FB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C23F300A1CB28CD0003218FB /* LoopImgViewController.h */,
-				C23F300B1CB28CD0003218FB /* LoopImgViewController.m */,
 				C23F300C1CB28CD0003218FB /* TestViewController.h */,
 				C23F300D1CB28CD0003218FB /* TestViewController.m */,
-				C23F300E1CB28CD0003218FB /* ViewController.h */,
-				C23F300F1CB28CD0003218FB /* ViewController.m */,
+				C230675E1CB36B35003AC294 /* ActionViewController.h */,
+				C230675F1CB36B35003AC294 /* ActionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,11 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23F30121CB28CD0003218FB /* ViewController.m in Sources */,
 				C23F30111CB28CD0003218FB /* TestViewController.m in Sources */,
 				C23F30161CB28CDB003218FB /* LoopImgView.m in Sources */,
-				C23F30101CB28CD0003218FB /* LoopImgViewController.m in Sources */,
 				C23F30071CB28CC9003218FB /* AppDelegate.m in Sources */,
+				C23067601CB36B35003AC294 /* ActionViewController.m in Sources */,
 				C2C60AB01CB20DA10043693A /* main.m in Sources */,
 				C2C60ABC1CB20DA10043693A /* LoopImg.xcdatamodeld in Sources */,
 				C23F30011CB28C27003218FB /* KLoopImg.m in Sources */,

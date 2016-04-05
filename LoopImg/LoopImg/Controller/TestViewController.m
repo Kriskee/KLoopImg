@@ -8,10 +8,18 @@
 
 #import "TestViewController.h"
 #import "KLoopImg.h"
+#import "ActionViewController.h"
+
+typedef NS_ENUM(NSInteger, EAction){
+    kChangeDirection,
+    kChangePush,
+};
 
 @interface TestViewController ()<UIScrollViewDelegate>
 {
     NSInteger direction;
+    CGFloat navigationMaxY;
+    EAction isAction;
 }
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,strong)KLoopImg *loopImg;
@@ -24,7 +32,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:1.000 green:0.124 blue:0.232 alpha:1.000];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    navigationMaxY = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.051 green:0.056 blue:0.231 alpha:1.000];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+    self.navigationItem.title = @"LoopImg Demo";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    isAction = kChangeDirection;
     direction = kScrollRight;
     self.array = @[@"01.png", @"02.png", @"03.png", @"04.png", @"05.png", @"hh.png"];
     
@@ -33,6 +50,8 @@
     self.label = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.loopImg.frame) + 50, SC_WIDTH - 40, 50)];
     {
         self.label.layer.masksToBounds = YES;
+        self.label.backgroundColor = [UIColor whiteColor];
+        self.label.textAlignment = NSTextAlignmentCenter;
         self.label.layer.cornerRadius = 5;
         self.label.layer.borderColor = [UIColor grayColor].CGColor;
         self.label.layer.borderWidth = 0.5;
@@ -47,11 +66,20 @@
         [button addTarget:self action:@selector(changeDirection) forControlEvents:UIControlEventTouchUpInside];
     }
     [self.view addSubview:button];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeSystem];
+    {
+        button2.frame = CGRectMake(100, CGRectGetMaxY(button.frame) + 50, SC_WIDTH - 200, 40);
+        button2.backgroundColor = [UIColor colorWithRed:0.394 green:1.000 blue:0.393 alpha:1.000];
+        [button2 setTitle:@"更换点击事件" forState:UIControlStateNormal];
+        [button2 addTarget:self action:@selector(changeAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    [self.view addSubview:button2];
 }
 
 // 创建轮播图
 - (void)createLoopImg{
-    self.loopImg = [[KLoopImg alloc]initWithFrame:CGRectMake(0, 50, SC_WIDTH, SC_WIDTH/2.0)
+    self.loopImg = [[KLoopImg alloc]initWithFrame:CGRectMake(0, navigationMaxY, SC_WIDTH, SC_WIDTH/2.0)
                                          imgArray:self.array
                                         direction:direction];
     {
@@ -89,7 +117,15 @@
 
 // 点击图片响应事件
 - (void)action{
-    self.label.text = [self.loopImg getActArray];
+    if(isAction == kChangeDirection){
+        self.label.text = [self.loopImg getElementOf:self.loopImg.actArray];
+    }else if(isAction == kChangePush){
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ActionViewController *AVC = [storyBoard instantiateViewControllerWithIdentifier:@"AVC"];
+        [self.navigationController pushViewController:AVC animated:YES];
+        AVC.img = [UIImage imageNamed:[self.loopImg getElementOfImgArray]];
+        AVC.str = [self.loopImg getElementOfActArray];
+    }
 }
 
 // 更改轮播方向
@@ -103,6 +139,19 @@
     self.loopImg = nil;
     [self.timer invalidate];
     [self createLoopImg];
+}
+
+// 更换响应事件
+- (void)changeAction{
+    switch (isAction) {
+        case kChangeDirection:
+            isAction = kChangePush;
+            break;
+        case kChangePush:
+            isAction = kChangeDirection;
+        default:
+            break;
+    }
 }
 
 // 即将拖动时，关闭计时器
